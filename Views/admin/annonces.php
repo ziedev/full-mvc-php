@@ -20,7 +20,7 @@
             <td>
 
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault<?php echo $annonce->id; ?> " <?php if ( $annonce->actif) {echo 'checked';} ?>>
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault<?php echo $annonce->id; ?> " <?php if ( $annonce->actif) {echo 'checked';} ?> data-id="<?php echo $annonce->id; ?>">
                     <label class="form-check-label" for="flexSwitchCheckDefault<?php echo $annonce->id; ?>"></label>
                 </div>
             </td>
@@ -34,3 +34,4 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+

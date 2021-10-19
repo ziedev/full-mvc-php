@@ -25,6 +25,25 @@ class AdminController extends Controller {
             $this->render("admin/annonces",compact("annonces"),"admin");
         }
     }
+
+    public function activeannonces($id)
+    {
+        if($this->isAdmin()){
+            $annonceModel = new AnnoncesModel;
+            
+            $annonceArray = $annonceModel->find($id);
+
+            if ($annonceArray){
+                $annonce = $annonceModel->hydrate($annonceArray);
+
+                $annonce->setActif($annonce->getActif() ? 0 : 1);
+
+                $annonce->update();
+            }
+        }
+        
+       
+    }
     /**
      * Supprimer une annonce
      *
