@@ -83,7 +83,7 @@ class AnnoncesController extends Controller {
                 exit;
             }
 
-            if($annonce->user_id !== $_SESSION["user"]["id"]){
+            if($annonce->user_id !== $_SESSION["user"]["id"] && !in_array("ROLE_ADMIN" , $_SESSION["user"]["roles"])){
                 http_response_code(404);
                 $_SESSION["erreur"] = "vous n'avez pas access a cette page";
                 header("Location: /annonces");
