@@ -27,7 +27,7 @@
             <td>
 
                 <a href="/annonces/modifier/<?php echo $annonce->id; ?>" class="btn btn-warning">Modifier</a>
-                <a href="" class="btn btn-danger">Supprimer</a>
+                <a href="/admin/supprimeannonce/<?php echo $annonce->id; ?>" class="btn btn-danger">Supprimer</a>
             </td>
             </tr>
 

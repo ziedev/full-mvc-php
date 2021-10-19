@@ -25,6 +25,20 @@ class AdminController extends Controller {
             $this->render("admin/annonces",compact("annonces"),"admin");
         }
     }
+    /**
+     * Supprimer une annonce
+     *
+     * @param [type] $id
+     * @return void
+     */
+    public function supprimeannonce($id)
+    {
+        if ($this->isAdmin()){
+            $annonce = new AnnoncesModel;
+            $annonce->delete($id);
+            header("Location: ".$_SERVER["HTTP_REFERER"]);
+        }
+    }
 
     /**
      * Verification si c'est Admin
@@ -45,7 +59,5 @@ class AdminController extends Controller {
             exit;
 
         }
-
-       
     }
 }
